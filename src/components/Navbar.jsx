@@ -24,7 +24,7 @@ export default function Navbar() {
   useEffect(() => { setOpen(false) }, [location])
 
   return (
-    <nav className={`fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-outline-variant/20 transition-all duration-300 ${scrolled ? 'py-2' : 'py-4'}`}>
+    <nav className={`fixed top-0 w-full z-50 bg-[#0e0e0e] lg:bg-background/80 lg:backdrop-blur-md border-b border-outline-variant/20 transition-all duration-300 ${scrolled ? 'py-2' : 'py-4'}`}>
       <div className="flex justify-between items-center px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
         <Link to="/" className="flex items-center gap-3">
           <img src="/images/logo.png" alt="NS FITZONE" className="h-10 w-auto" />
@@ -53,20 +53,20 @@ export default function Navbar() {
           <span className={`block w-7 h-0.5 bg-on-surface rounded transition-all duration-300 ${open ? '-rotate-45 -translate-y-2' : ''}`} />
         </button>
 
-        <div className={`fixed top-0 right-0 h-full w-72 bg-background/98 backdrop-blur-2xl border-l border-outline-variant/30 transform transition-all duration-300 lg:hidden ${open ? 'translate-x-0' : 'translate-x-full'}`}>
-          <div className="flex flex-col gap-1 p-8 pt-28">
+        <div className={`fixed top-0 right-0 h-full w-72 bg-[#0e0e0e] border-l border-outline-variant/30 transform transition-all duration-300 lg:hidden shadow-2xl ${open ? 'translate-x-0' : 'translate-x-full'}`}>
+          <div className="flex flex-col gap-2 p-6 pt-28">
             {links.map(l => (
               <Link key={l.to} to={l.to}
-                className={`block px-5 py-3.5 font-body text-label-bold uppercase tracking-widest transition-all ${
+                className={`block px-5 py-4 rounded font-body text-label-bold uppercase tracking-widest transition-all ${
                   location.pathname === l.to
-                    ? 'text-primary bg-white/5'
-                    : 'text-on-surface-variant hover:text-primary hover:bg-white/5'
+                    ? 'text-electric-blue bg-electric-blue/10'
+                    : 'text-on-surface-variant hover:text-white hover:bg-white/10'
                 }`}>
                 {l.label}
               </Link>
             ))}
-            <div className="mt-6 px-5">
-              <Link to="/contact" className="block bg-primary text-on-primary font-body text-label-bold uppercase tracking-widest px-6 py-4 text-center hover:opacity-80 transition-all">
+            <div className="mt-4 px-1">
+              <Link to="/contact" className="block bg-electric-blue text-black font-body text-label-bold uppercase tracking-widest px-6 py-4 text-center hover:opacity-90 transition-all active:scale-95 rounded">
                 JOIN NOW
               </Link>
             </div>
